@@ -13,8 +13,7 @@
 
   export default function Comment() {
     const { t } = useTranslation();
-
-    // Slick slider settings function
+    // slider
     const getSliderSettings = () => {
       return {
         dots: true,
