@@ -1,23 +1,23 @@
 .video-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columns by default */
+  grid-template-columns: repeat(4, 1fr); 
   
 
   @media (max-width: 1200px) {
-    grid-template-columns: repeat(3, 1fr); /* 3 columns for medium screens */
-    margin-left: 50px; /* Reduce left margin on smaller screens */
+    grid-template-columns: repeat(3, 1fr); 
+    margin-left: 50px; 
   }
 
   @media (max-width: 900px) {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
-    margin-left: 25px; /* Further reduce left margin */
+    grid-template-columns: repeat(2, 1fr); 
+    margin-left: 25px; 
   }
 
   @media (max-width: 600px) {
     width: 100%;
-    grid-template-columns: 1fr; /* 1 column for very small screens */
-    justify-items: center; /* Center the grid items on small screens */
-    margin-left: 0; /* Remove left margin for small devices */
+    grid-template-columns: 1fr; 
+    justify-items: center; 
+    margin-left: 0; 
   }
 }
 
@@ -26,43 +26,43 @@
 }
 
 .ish-title {
-  font-size: 35px;
+  font-size: 40px;
   color: #000929b3;
   font-family: "Unbounded";
   margin-bottom: 30px;
   text-align: center;
 }
 
-/* Make video frame responsive */
+
 .video-frame {
   object-fit: cover;
   width: 330px;
-  height: 580px; /* Make it responsive to parent width */
+  height: 580px; 
   border-radius: 5px;
   max-width: 330px; 
-  padding: 45px;/* Maintain the original size */
+  padding: 45px;
 }
 
 
 
-/* Media Queries for Responsive Design */
 
-/* Small mobile screens (max-width: 467px) */
+
+
 @media (max-width: 467px) {
   .video-grid {
-    grid-template-columns: 1fr; /* 1 column layout */
+    grid-template-columns: 1fr; 
     gap: 20px;
-   /* Reduce gap between videos */
+   
   }
 
   .ish-title {
-    font-size: 28px; /* Reduce font size for smaller screens */
-    margin-bottom: 20px; /* Adjust margin */
+    font-size: 28px; 
+    margin-bottom: 20px; 
   }
 
   .video-frame {
-    max-width: 100%; /* Full width for the video frame */
+    max-width: 100%; 
     border-radius: 5px;
-    padding: 25px; /* Keep border-radius */
+    padding: 25px; 
   }
 }

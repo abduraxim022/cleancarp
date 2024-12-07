@@ -5,28 +5,21 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function Contact() {
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("+998"); // Initialize with +998
+  const [phone, setPhone] = useState("+998");
   const [errors, setErrors] = useState({});
   const { t } = useTranslation();
 
-  // Form validation and Telegram submission logic
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const newErrors = {};
-    if (!name) {
-      newErrors.name = "Ismingizni kiriting.";
-    }
-    const phonePattern = /^\+998[0-9]{9}$/;
-    if (!phone.match(phonePattern)) {
-      newErrors.phone = "Telefon raqamingiz noto'g'ri formatda.";
-    }
+    if (!name.trim()) newErrors.name = t("Please fill in your name");
+    if (!phone.trim() || phone.length < 13) newErrors.phone = t("Please enter a valid phone number");
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
     } else {
       setErrors({});
-
       const botToken = process.env.REACT_APP_TELEGRAM_BOT_TOKEN;
       const chatId = process.env.REACT_APP_TELEGRAM_CHAT_ID;
       const message = `Ismingiz: ${name}%0ATelefon raqamingiz: ${phone}`;
@@ -35,31 +28,24 @@ export default function Contact() {
       try {
         const response = await fetch(url);
         if (response.ok) {
-          toast.success("Ma'lumotlaringiz yuborildi!", {
-            position: "top-right",
-          });
+          toast.success(t("Your information has been sent!"), { position: "top-right" });
           setName("");
-          setPhone("+998"); // Reset phone number to +998
+          setPhone("+998");
         } else {
-          toast.error("Xato yuz berdi, qayta urinib ko'ring.", {
-            position: "top-right",
-          });
+          toast.error(t("An error occurred, please try again."), { position: "top-right" });
         }
-      } catch (error) {
-        toast.error("Xato yuz berdi, qayta urinib ko'ring.", {
-          position: "top-right",
-        });
+      } catch {
+        toast.error(t("An error occurred, please try again."), { position: "top-right" });
       }
     }
   };
 
-  // Handle phone input change to keep +998 intact
   const handlePhoneChange = (e) => {
     const input = e.target.value;
     if (input.startsWith("+998")) {
-      setPhone(input); // Only allow updates if +998 is the prefix
+      setPhone(input);
     } else if (input === "") {
-      setPhone("+998"); // Reset to +998 if the user clears the input
+      setPhone("+998");
     }
   };
 
@@ -77,26 +63,23 @@ export default function Contact() {
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  required
                 />
-                {errors.name && (
-                  <span className="error-message">{errors.name}</span>
-                )}
+                {errors.name && <span className="error-message">{errors.name}</span>}
               </div>
-
               <div className="form-group">
-                <input className="in2"
+                <input
+                  className="in2"
                   type="text"
                   value={phone}
-                  onChange={handlePhoneChange} // Handle the phone input
+                  onChange={handlePhoneChange}
+                  required
                 />
-                {errors.phone && (
-                  <span className="error-message">{errors.phone}</span>
-                )}
+                {errors.phone && <span className="error-message">{errors.phone}</span>}
               </div>
             </div>
-
             <button type="submit" className="submit-btn">
-              Yuborish
+              {t("Submit")}
             </button>
           </form>
         </div>

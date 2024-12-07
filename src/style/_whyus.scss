@@ -35,7 +35,7 @@
   }
 }
 .main-button{
-  background-color: #007bff;
+  background-color: #ed9d1d;
   color: #fff;
   border: none;
   padding: 10px 25px;
@@ -44,11 +44,15 @@
   font-size: 16px;
   border-radius: 20px;
   font-weight: 500;
-  font-family: Unbounded;
+  font-family: 'Unbounded';
+  &:hover{
+    background-color: #e4be31;
+  }
 }
 .negabiz {
   font-family: "Unbounded", sans-serif;
   font-optical-sizing: auto;
+  color: rgba(0, 9, 41, 0.701960784);
   font-weight: weight;
   font-style: normal;
   

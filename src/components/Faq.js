@@ -23,7 +23,7 @@ export default function Faq() {
                 aria-controls="panel1a-content"
                 id="panel1a-header"
               >
-                <h3>{t("washingDuration")}</h3>
+                <h4>{t("washingDuration")}</h4>
               </AccordionSummary>
               <AccordionDetails>
                 <p>{t("washingDurationAnswer")}</p>
@@ -36,7 +36,7 @@ export default function Faq() {
                 aria-controls="panel2a-content"
                 id="panel2a-header"
               >
-                <h3>{t("pricing")}</h3>
+                <h4>{t("pricing")}</h4>
               </AccordionSummary>
               <AccordionDetails>
                 <p>{t("pricingAnswer")}</p>
@@ -49,7 +49,7 @@ export default function Faq() {
                 aria-controls="panel3a-content"
                 id="panel3a-header"
               >
-                <h3>{t("damageGuarantee")}</h3>
+                <h4>{t("damageGuarantee")}</h4>
               </AccordionSummary>
               <AccordionDetails>
                 <p>{t("damageGuaranteeAnswer")}</p>
@@ -62,7 +62,7 @@ export default function Faq() {
                 aria-controls="panel4a-content"
                 id="panel4a-header"
               >
-                <h3>{t("cleaningProducts")}</h3>
+                <h4>{t("cleaningProducts")}</h4>
               </AccordionSummary>
               <AccordionDetails>
                 <p>{t("cleaningProductsAnswer")}</p>
@@ -75,7 +75,7 @@ export default function Faq() {
                 aria-controls="panel5a-content"
                 id="panel5a-header"
               >
-                <h3>{t("pickupDelivery")}</h3>
+                <h4>{t("pickupDelivery")}</h4>
               </AccordionSummary>
               <AccordionDetails>
                 <p>{t("pickupDeliveryAnswer")}</p>
@@ -88,7 +88,7 @@ export default function Faq() {
                 aria-controls="panel6a-content"
                 id="panel6a-header"
               >
-                <h3>{t("washAnyCarpet")}</h3>
+                <h4>{t("washAnyCarpet")}</h4>
               </AccordionSummary>
               <AccordionDetails>
                 <p>{t("washAnyCarpetAnswer")}</p>

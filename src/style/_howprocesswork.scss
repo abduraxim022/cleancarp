@@ -3,22 +3,21 @@
   margin-bottom: 2rem;
   font-size: 2rem;
   font-weight: bold;
-  font-family: EuclidSquare-B;
-  font-size: 45px;
+  font-family: 'Unbounded';
+  font-size: 40px;
   line-height: 100%;
   font-weight: 700;
-  color: #193365;
+  color: rgba(0, 9, 41, 0.7019607843);
   margin-top: 20px;
 }
 
-/* Cards Container */
 .qanday-div_cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-/* Individual Cards */
+
 .qanday-cards {
   display: flex;
   flex-wrap: wrap;
@@ -52,10 +51,10 @@
   color: #6c757d;
 }
 
-/* Order Button */
+
 .btn-order {
   padding: 0.75rem 1.5rem;
-  background-color: #00bfff;
+  background-color: #feb640;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -63,25 +62,25 @@
 }
 
 .btn-order:hover {
-  background-color: #009acd;
+  background-color: #e4be31;
 }
 
-/* Media Queries for Responsive Design */
 
-/* Tablets and smaller screens */
+
+
 @media (max-width: 768px) {
   .qanday-section h1 {
-    font-size: 36px; /* Adjust title font size */
-    margin-bottom: 1.5rem; /* Adjust bottom margin */
+    font-size: 36px;
+    margin-bottom: 1.5rem; 
   }
 
   .qanday-card {
-    width: 220px; /* Adjust card width for smaller screens */
-    padding: 1rem; /* Adjust padding */
+    width: 220px; 
+    padding: 1rem; 
   }
 
   .qanday-card h4 {
-    font-size: 1.1rem; /* Adjust heading font size */
+    font-size: 1.1rem; 
   }
 
   .qanday-card p {

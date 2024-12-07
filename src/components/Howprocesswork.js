@@ -3,7 +3,7 @@ import { Bridge, Clear, Delivery, Document, Phone, Van, Warderobe } from "../svg
 import { useTranslation } from 'react-i18next';
 
 export default function Howprocesswork() {
-  const { t } = useTranslation(); // Access the translation function
+  const { t } = useTranslation(); 
 
   return (
     <div className="container">

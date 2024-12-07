@@ -1,9 +1,9 @@
 import React from "react";
-import { useTranslation } from 'react-i18next'; // Import useTranslation
+import { useTranslation } from 'react-i18next';
 import logo from "../images/logo.png";
 
 export default function Footer() {
-  const { t } = useTranslation(); // Initialize translation hook
+  const { t } = useTranslation(); 
 
   return (
     <div className="container">
@@ -14,7 +14,7 @@ export default function Footer() {
         <div data-aos ="fade-right" className="footer-div">
           <ul>
             <li>
-              <p>{t('location')}</p> {/* Use translation for location */}
+              <p>{t('location')}</p> 
             </li>
             <li>
               <a href="tel:+998950003080">+998950003080</a>
