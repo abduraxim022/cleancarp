@@ -1,40 +1,41 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Select } from "antd";
-import { Sidebar } from "primereact/sidebar"; // Import PrimeReact Sidebar
-import { Button } from "primereact/button"; // Optional for Sidebar buttons
+import { Sidebar } from "primereact/sidebar"; 
 import logo from "../images/logo.png";
-import "primereact/resources/themes/saga-blue/theme.css"; // PrimeReact Theme
-import "primereact/resources/primereact.min.css"; // Core CSS
-import "primeicons/primeicons.css"; // Icons
+import "primereact/resources/themes/saga-blue/theme.css"; 
+import "primereact/resources/primereact.min.css"; 
+import "primeicons/primeicons.css"; 
 
 const { Option } = Select;
 
 export default function Navbar() {
   const { t, i18n } = useTranslation();
-  const [isOpen, setIsOpen] = useState(false); // Sidebar state
+  const [isOpen, setIsOpen] = useState(false); 
 
   const handleLanguageChange = (value) => {
     i18n.changeLanguage(value);
   };
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen); // Toggle sidebar visibility
+    setIsOpen(!isOpen);
   };
 
   const handleLinkClick = () => {
-    setIsOpen(false); // Close sidebar on link click
+    setIsOpen(false); 
   };
 
   return (
     <div className="nb">
       <nav className="navbar">
         <div className="container container1">
+          <div>
           <a href="#main">
             <img src={logo} alt={t("logoAlt")} className="navbar-logo" />
           </a>
+          </div>
+         
 
-          {/* Desktop Navbar links */}
           <div className="links-nav">
             <div className="navbar-links">
               <a href="#main" className="nav-link" onClick={handleLinkClick}>
@@ -64,7 +65,6 @@ export default function Navbar() {
                 <Option value="ru">Рус</Option>
                 <Option value="en">En</Option>
               </Select>
-              {/* Sidebar (Hamburger menu) for mobile */}
               <div className="menu-icon" onClick={toggleMenu}>
                 &#9776;
               </div>
@@ -76,7 +76,6 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* PrimeReact Sidebar for mobile menu */}
         <Sidebar visible={isOpen} onHide={toggleMenu} position="right">
           <a href="#main" className="nav-link" onClick={handleLinkClick}>
             {t("main")}
