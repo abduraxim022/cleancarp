@@ -13,7 +13,6 @@
 
   export default function Comment() {
     const { t } = useTranslation();
-    // slider
     const getSliderSettings = () => {
       return {
         dots: true,
