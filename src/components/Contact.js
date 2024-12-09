@@ -11,12 +11,18 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     const newErrors = {};
-    if (!name.trim()) newErrors.name = t("Please fill in your name");
-    if (!phone.trim() || phone.length < 13)
-      newErrors.phone = t("Iltimos telefon raqamingzini kiriting");
-
+  
+    if (!name.trim()) newErrors.name = t("Ismingizni kiriting");
+  
+    const phoneRegex = /^\+998\d{9}$/;
+    if (!phone.trim()) {
+      newErrors.phone = t("Iltimos, telefon raqamingizni kiriting");
+    } else if (!phoneRegex.test(phone)) {
+      newErrors.phone = t("Iltimos, telefon raqamingizni to‘g‘ri kiriting");
+    }
+  
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
     } else {
@@ -25,7 +31,7 @@ export default function Contact() {
       const chatId = process.env.REACT_APP_TELEGRAM_CHAT_ID;
       const message = `Ismingiz: ${name}%0ATelefon raqamingiz: ${phone}`;
       const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${message}`;
-
+  
       try {
         const response = await fetch(url);
         if (response.ok) {
@@ -46,6 +52,7 @@ export default function Contact() {
       }
     }
   };
+  
 
   const handlePhoneChange = (e) => {
     const input = e.target.value;
@@ -83,7 +90,8 @@ export default function Contact() {
               <div className="form-group">
                 <input
                   className={`in2 ${errors.phone ? "input-error" : ""}`}
-                  type="number"
+                  placeholder="Telefon raqamingiz"
+                  type="text"
                   value={phone}
                   onChange={handlePhoneChange}
                   onFocus={() =>
