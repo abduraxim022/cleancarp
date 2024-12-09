@@ -83,7 +83,7 @@ export default function Contact() {
               <div className="form-group">
                 <input
                   className={`in2 ${errors.phone ? "input-error" : ""}`}
-                  type="text"
+                  type="number"
                   value={phone}
                   onChange={handlePhoneChange}
                   onFocus={() =>
