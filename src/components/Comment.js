@@ -65,7 +65,7 @@
             <Slider {...getSliderSettings()}>
               <div className="testimonial-card">
                 <div className="comment-image_container">
-              <img width={"100px"} height={"100px"} src={nigora}/>
+              <img width={"100px"} height={"100px"} src={nigora} alt="nigora img"/>
               <div>
                 <h2>Nigora</h2>
                 <span>{t("telegram_username", { username: "@nigora_dostva" })}</span>

@@ -14,7 +14,8 @@ export default function Contact() {
 
     const newErrors = {};
     if (!name.trim()) newErrors.name = t("Please fill in your name");
-    if (!phone.trim() || phone.length < 13) newErrors.phone = t("Please enter a valid phone number");
+    if (!phone.trim() || phone.length < 13)
+      newErrors.phone = t("Iltimos telefon raqamingzini kiriting");
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -28,14 +29,20 @@ export default function Contact() {
       try {
         const response = await fetch(url);
         if (response.ok) {
-          toast.success(t("Your information has been sent!"), { position: "top-right" });
+          toast.success(t("Sizning ma'lumotingiz yuborildi!"), {
+            position: "top-right",
+          });
           setName("");
           setPhone("+998");
         } else {
-          toast.error(t("An error occurred, please try again."), { position: "top-right" });
+          toast.error(t("Ma'lumot yuborishda hatolik yuz berdi"), {
+            position: "top-right",
+          });
         }
       } catch {
-        toast.error(t("An error occurred, please try again."), { position: "top-right" });
+        toast.error(t("An error occurred, please try again."), {
+          position: "top-right",
+        });
       }
     }
   };
@@ -63,19 +70,29 @@ export default function Contact() {
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  required
+                  onFocus={() =>
+                    setErrors((prevErrors) => ({ ...prevErrors, name: null }))
+                  }
+                  className={errors.name ? "input-error" : ""}
                 />
-                {errors.name && <span className="error-message">{errors.name}</span>}
+                <span className={`error-text ${errors.name ? "visible" : ""}`}>
+                  {errors.name}
+                </span>
               </div>
+
               <div className="form-group">
                 <input
-                  className="in2"
+                  className={`in2 ${errors.phone ? "input-error" : ""}`}
                   type="text"
                   value={phone}
                   onChange={handlePhoneChange}
-                  required
+                  onFocus={() =>
+                    setErrors((prevErrors) => ({ ...prevErrors, phone: null }))
+                  }
                 />
-                {errors.phone && <span className="error-message">{errors.phone}</span>}
+                <span className={`error-text ${errors.phone ? "visible" : ""}`}>
+                  {errors.phone}
+                </span>
               </div>
             </div>
             <button type="submit" className="submit-btn">

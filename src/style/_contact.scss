@@ -2,14 +2,15 @@
   width: 100%;
   height: 550px;
   background-repeat: no-repeat;
-  background-color: #feb640;
-
+  background: radial-gradient(333.17% 80.94% at 51.32% 69.21%, #04A2BA 0%, rgba(2, 227, 214, .2) 100%);
   display: flex;
   align-items: center;
   position: relative;
   border-radius: 15px;
   margin-top: 50px;
 }
+
+
 
 .contact-img {
   background-image: url("../images/carpet2.png");
@@ -74,6 +75,47 @@
     margin-left: 18px;
   }
 }
+.error-text {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  color: red;
+  font-size: 12px;
+  visibility: hidden; 
+  opacity: 0; 
+  transition: opacity 0.2s ease-in-out; 
+}
+
+.error-text.visible {
+  visibility: visible;
+  opacity: 1; 
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 20px; 
+}
+
+.input-error {
+  border: 2px solid rgba(255, 0, 0, 0.852);
+  background-color: #ffe6e6;
+}
+
+.error-text {
+  position: absolute; 
+  bottom: -20px; 
+  left: 0;
+  color: rgba(255, 0, 0, 0.857);
+  font-size: 12px;
+  visibility: hidden; 
+}
+
+.input-error + .error-text {
+  visibility: visible; 
+  font-family: "Unbounded";
+  
+}
+
 
 .form-group {
   margin-top: 15px;
